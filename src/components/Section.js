@@ -57,7 +57,14 @@ const ButtonGroup = styled.div`
 
 const LeftButton = styled.div`
     
-    
+    background-color: rgba(23, 26, 32, 0.8); // Main button color
+    height: 40px;
+    width: 256px;
+    color: white; // Makes text white
+    display: flex;
+    justify-content: center; // Horizontally center TEXT within button
+    align-items: center; // Vertically center TEXT within button
+    // So button is not yet centered but the text inside of it is
 
 `
 
