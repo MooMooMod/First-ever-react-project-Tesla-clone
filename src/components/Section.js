@@ -42,6 +42,15 @@ const Wrap = styled.div`
 
     // background: black; // DOES SOMETHING since declared after image so ON TOP OF PREVIOUS STUFF
 
+
+    display: flex; // Components now next to each other, text, buttons etc.
+    flex-direction: column; // Puts Model S text back in middle but buttons on left of it now
+    justify-content: space-between; // VERTICALLY Moves buttons to bottom of screen, still on left tho
+    align-items: center; // Horizontally moves buttons to center, text already in middle
+
+
+
+
 `
 
 
@@ -52,6 +61,10 @@ const ItemText = styled.div`
 
 
 const ButtonGroup = styled.div`
+    display: flex; // Buttons next to each other now, instead of on top of each other
+    margin-bottom: 30px;
+
+
 
 `
 
@@ -65,6 +78,16 @@ const LeftButton = styled.div`
     justify-content: center; // Horizontally center TEXT within button
     align-items: center; // Vertically center TEXT within button
     // So button is not yet centered but the text inside of it is
+    border-radius: 100px; // Make edges curved
+    opacity: 0.85;
+    text-transform: uppercase;
+    font-size: 12px;
+    // Buttons currently on left of screen, on top of each other
+    // So change div they're in (ButtonGroup) to have flex property to put the horizontally next to each other
+
+    cursor: pointer; // When hovering above button, cursor becomes clicky hand 
+    
+
 
 `
 
