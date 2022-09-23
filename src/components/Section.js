@@ -1,17 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 
-function Section() {
+function Section({
+  title,
+  description,
+  backgroundImg,
+  leftBtnText,
+  rightBtnText,
+}) {
   return (
-    <Wrap>
+    <Wrap bgImg={backgroundImg}>
+      {/* Access paramter via props.bgImage */}
       <ItemText>
-        <h1>Model S</h1>
-        <p>Order online for Touchless delivery</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
       </ItemText>
       <Buttons>
         <ButtonGroup>
-          <LeftButton>Custon Order</LeftButton>
-          <RightButton>Existing Inventory</RightButton>
+          <LeftButton>{leftBtnText}</LeftButton>
+          <RightButton>{rightBtnText}</RightButton>
         </ButtonGroup>
 
         <DownArrow src="/images/down-arrow.svg" />
@@ -33,7 +40,8 @@ const Wrap = styled.div`
   // background: black; // Does nothing since image displayed on top
 
   // URL for background-image checks PUBLIC folder, so implied ./public/images.... etc
-  background-image: url("/images/model-s.jpg"); // Load image, everything previously impacts it
+  background-image: ${(props) =>
+    `url("/images/${props.bgImg}")`}; // Load image, everything previously impacts it
 
   // background: black; // DOES SOMETHING since declared after image so ON TOP OF PREVIOUS STUFF
 
@@ -51,6 +59,10 @@ const ItemText = styled.div`
 const ButtonGroup = styled.div`
   display: flex; // Buttons next to each other now, instead of on top of each other
   margin-bottom: 30px;
+  @media (max-width: 768px) {
+    // For screens smaller than 768px
+    flex-direction: column; // Stack buttons on top of each other instead of next to
+  }
 `;
 
 const LeftButton = styled.div`
